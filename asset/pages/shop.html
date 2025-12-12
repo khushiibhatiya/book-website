@@ -328,6 +328,45 @@
 
             filterContent(currentCategory, searchTerm);
         });
+
+        // --- Click Handler for Detail Page ---
+        // Ensure elements exist before adding listeners to avoid errors
+        const cards = document.querySelectorAll('.book-card');
+        if (cards.length > 0) {
+            // Add click event to book cards for navigation
+            cards.forEach(card => {
+                card.style.cursor = 'pointer';
+
+                // Find the add button inside this card and stop propagation on it specifically
+                const addBtn = card.querySelector('.add-btn');
+                if (addBtn) {
+                    addBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        // The existing onclick logic on the button (if any) will still fire
+                    });
+                }
+
+                card.addEventListener('click', (e) => {
+                    // Double check just in case
+                    if (e.target.closest('.add-btn')) return;
+
+                    const title = card.querySelector('.book-title').innerText;
+                    const author = card.querySelector('.book-author').innerText;
+                    const price = card.querySelector('.book-price').innerText;
+                    const image = card.querySelector('img').src;
+
+                    // URL Encode params
+                    const params = new URLSearchParams({
+                        title: title,
+                        author: author,
+                        price: price,
+                        image: image
+                    });
+
+                    window.location.href = `shop-detail.html?${params.toString()}`;
+                });
+            });
+        }
     </script>
 </body>
 

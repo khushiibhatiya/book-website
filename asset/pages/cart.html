@@ -201,7 +201,8 @@
                     <span>Total</span>
                     <span id="total">$0.00</span>
                 </div>
-                <button class="checkout-page-btn">Proceed to Checkout</button>
+                <button class="checkout-page-btn" onclick="window.location.href='checkout.html'">Proceed to
+                    Checkout</button>
             </div>
         </div>
     </section>
@@ -225,13 +226,22 @@
             const container = document.getElementById('cart-content');
             const subtotalEl = document.getElementById('subtotal');
             const totalEl = document.getElementById('total');
+            const summarySection = document.querySelector('.cart-summary');
 
             if (items.length === 0) {
-                container.innerHTML = '<p style="text-align:center; padding: 40px; color: #888;">Your bag is currently empty.</p>';
-                subtotalEl.innerText = '$0.00';
-                totalEl.innerText = '$0.00';
+                container.innerHTML = `
+                    <div style="text-align:center; padding: 60px 20px;">
+                        <ion-icon name="bag-outline" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></ion-icon>
+                        <h3 style="font-family: 'Outfit'; color: #333; margin-bottom: 10px;">Your bag is empty</h3>
+                        <p style="color: #888; margin-bottom: 30px;">Looks like you haven't added any magical books yet.</p>
+                        <a href="shop.html" class="checkout-page-btn" style="text-decoration: none; display: inline-block; width: auto; padding: 12px 30px;">Start Shopping</a>
+                    </div>
+                `;
+                if (summarySection) summarySection.style.display = 'none';
                 return;
             }
+
+            if (summarySection) summarySection.style.display = 'block';
 
             let html = '';
             let total = 0;
@@ -239,15 +249,24 @@
             items.forEach((item, index) => {
                 const price = parseFloat(item.price.replace(/[^0-9.]/g, ''));
                 total += price;
+
+                // Create params for detail page
+                const params = new URLSearchParams({
+                    title: item.title,
+                    author: item.author,
+                    price: item.price,
+                    image: item.image
+                }).toString();
+
                 html += `
-                    <div class="cart-page-item">
+                    <div class="cart-page-item" onclick="window.location.href='shop-detail.html?${params}'" style="cursor: pointer;">
                         <img src="${item.image}" alt="${item.title}">
                         <div class="item-details">
                             <div class="item-title">${item.title}</div>
                             <div class="item-author">${item.author}</div>
                         </div>
                         <div class="item-price">${item.price}</div>
-                        <button class="remove-btn" onclick="removeItemFromCart(${index})">
+                        <button class="remove-btn" onclick="event.stopPropagation(); removeItemFromCart(${index})">
                             <ion-icon name="trash-outline"></ion-icon>
                         </button>
                     </div>

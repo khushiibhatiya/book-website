@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Magical Shop</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            /* Inherit or set consistent font */
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .checkout-page {
+            padding: 120px 0 80px;
+            min-height: 100vh;
+            background: radial-gradient(circle at top left, #f8faff, #fff, #f0f4ff);
+        }
+
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 50px;
+        }
+
+        /* Left Side: Forms */
+        .checkout-form-section {
+            flex: 2;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--text-main, #333);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Animated Inputs */
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .input-row .input-group {
+            flex: 1;
+        }
+
+        .checkout-input {
+            width: 100%;
+            padding: 15px 15px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .checkout-input:focus {
+            border-color: var(--shop-primary, #bdc3c7);
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .input-label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            background: transparent;
+            padding: 0 5px;
+        }
+
+        .checkout-input:focus~.input-label,
+        .checkout-input:not(:placeholder-shown)~.input-label {
+            top: 0;
+            transform: translateY(-50%) scale(0.9);
+            background: #fff;
+            color: var(--shop-primary, #333);
+            font-weight: 600;
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .payment-card {
+            flex: 1;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+            background: white;
+            color: #555;
+        }
+
+        .payment-card.active {
+            border-color: #333;
+            background: #333;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .payment-card ion-icon {
+            font-size: 22px;
+        }
+
+        /* Right Side: Summary */
+        .checkout-summary-section {
+            flex: 1;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 100px;
+            animation: slideInRight 0.8s ease backwards;
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .summary-item img {
+            width: 50px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .summary-details h4 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            color: var(--text-main, #333);
+        }
+
+        .summary-details p {
+            margin: 0;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .grand-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-weight: 800;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #111, #444);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .place-order-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .place-order-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .place-order-btn:hover::after {
+            left: 100%;
+        }
+
+        /* Success Overlay */
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .success-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .success-content {
+            text-align: center;
+            transform: scale(0.8);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .success-overlay.active .success-content {
+            transform: scale(1);
+        }
+
+        .check-icon {
+            font-size: 80px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            animation: bounceIn 1s 0.2s backwards;
+        }
+
+        .order-msg {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .order-sub {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .back-home-btn {
+            padding: 12px 30px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media(max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .summary-card {
+                position: static;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <section class="checkout-page">
+        <div class="checkout-container">
+            <!-- Left Side Forms -->
+            <div class="checkout-form-section">
+
+                <!-- Shipping Details -->
+                <div class="glass-card">
+                    <h2 class="section-title"><ion-icon name="location-outline"></ion-icon> Shipping Details</h2>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <input type="text" class="checkout-input" id="firstName" placeholder=" " required>
+                            <label for="firstName" class="input-label">First Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="checkout-input" id="lastName" placeholder=" " required>
+                            <label for="lastName" class="input-label">Last Name</label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" class="checkout-input" id="email" placeholder=" " required>
+                        <label for="email" class="input-label">Email Address</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" class="checkout-input" id="address" placeholder=" " required>
+                        <label for="address" class="input-label">Street Address</label>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <input type="text" class="checkout-input" id="city" placeholder=" " required>
+                            <label for="city" class="input-label">City</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="checkout-input" id="zip" placeholder=" " required>
+                            <label for="zip" class="input-label">Zip Code</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment -->
+                <div class="glass-card">
+                    <h2 class="section-title"><ion-icon name="card-outline"></ion-icon> Payment Method</h2>
+
+                    <div class="payment-methods">
+                        <div class="payment-card active" data-method="card" onclick="selectPayment(this)">
+                            <ion-icon name="card"></ion-icon> Credit Card
+                        </div>
+                        <div class="payment-card" data-method="paypal" onclick="selectPayment(this)">
+                            <ion-icon name="logo-paypal"></ion-icon> PayPal
+                        </div>
+                        <div class="payment-card" data-method="cod" onclick="selectPayment(this)">
+                            <ion-icon name="cash-outline"></ion-icon> COD
+                        </div>
+                    </div>
+
+                    <!-- Credit Card Fields -->
+                    <div id="payment-card" class="payment-content">
+                        <div class="input-group">
+                            <input type="text" class="checkout-input" id="cardNumber" placeholder=" ">
+                            <label for="cardNumber" class="input-label">Card Number</label>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <input type="text" class="checkout-input" id="expiry" placeholder=" ">
+                                <label for="expiry" class="input-label">MM / YY</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="checkout-input" id="cvc" placeholder=" ">
+                                <label for="cvc" class="input-label">CVC</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PayPal Info -->
+                    <div id="payment-paypal" class="payment-content"
+                        style="display: none; text-align: center; padding: 20px;">
+                        <ion-icon name="logo-paypal"
+                            style="font-size: 48px; color: #003087; margin-bottom: 10px;"></ion-icon>
+                        <p style="color: #666; margin: 0;">You will be redirected to PayPal to complete your purchase
+                            safely.</p>
+                    </div>
+
+                    <!-- COD Info -->
+                    <div id="payment-cod" class="payment-content"
+                        style="display: none; text-align: center; padding: 20px;">
+                        <ion-icon name="happy-outline"
+                            style="font-size: 48px; color: #4CAF50; margin-bottom: 10px;"></ion-icon>
+                        <p style="color: #666; margin: 0;">Pay with cash upon delivery. Simple and secure.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Side Summary -->
+            <div class="checkout-summary-section">
+                <div class="summary-card">
+                    <h2 class="section-title">Order Summary</h2>
+                    <div id="order-items">
+                        <!-- Items injected here -->
+                    </div>
+
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="grand-total">
+                        <span>Total</span>
+                        <span id="total">$0.00</span>
+                    </div>
+
+                    <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Overlay -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-content">
+            <ion-icon name="checkmark-circle" class="check-icon"></ion-icon>
+            <h1 class="order-msg">Order Placed Successfully!</h1>
+            <p class="order-sub">Thank you for your purchase. Your magical books are on their way! ✨</p>
+            <a href="../../index.html" class="back-home-btn" onclick="clearCart()">Continue Shopping</a>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        // Load Header & Footer
+        fetch('../component/header.html').then(r => r.text()).then(d => {
+            document.getElementById('header').innerHTML = d;
+            const badge = document.querySelector('.cart-badge');
+            if (badge) badge.style.display = 'none'; // Optional: hide cart badge in checkout
+        });
+        fetch('../component/footer.html').then(r => r.text()).then(d => document.getElementById('footer').innerHTML = d);
+
+        // Payment Selection Logic
+        function selectPayment(element) {
+            // UI Update
+            document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
+            element.classList.add('active');
+
+            // Logic Update
+            const method = element.dataset.method;
+            document.querySelectorAll('.payment-content').forEach(el => el.style.display = 'none');
+
+            const content = document.getElementById(`payment-${method}`);
+            if (content) {
+                content.style.display = 'block';
+                // Toggle required attribute for inputs
+                const inputs = content.querySelectorAll('input');
+                document.querySelectorAll('.payment-content input').forEach(i => i.removeAttribute('required'));
+                inputs.forEach(i => i.setAttribute('required', 'true'));
+            }
+        }
+
+        // Render Order Summary
+        function loadOrderSummary() {
+            const items = cart.getItems();
+            const container = document.getElementById('order-items');
+
+            if (items.length === 0) {
+                container.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            items.forEach(item => {
+                const price = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+                total += price;
+
+                html += `
+                    <div class="summary-item">
+                        <img src="${item.image}" alt="Book">
+                        <div class="summary-details">
+                            <h4>${item.title}</h4>
+                            <p>${item.price}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            document.getElementById('subtotal').innerText = '$' + total.toFixed(2);
+            document.getElementById('total').innerText = '$' + total.toFixed(2);
+        }
+
+        // Simulate Order Placement
+        function placeOrder() {
+            const btn = document.querySelector('.place-order-btn');
+            const originalText = btn.innerText;
+
+            // Simple validation check (visual only)
+            const inputs = document.querySelectorAll('input[required]');
+            let valid = true;
+            inputs.forEach(input => {
+                if (!input.value) {
+                    input.style.borderColor = 'red';
+                    valid = false;
+                } else {
+                    input.style.borderColor = '#ddd';
+                }
+            });
+
+            if (!valid) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Loading State
+            btn.innerHTML = '<ion-icon name="sync-outline" class="spin"></ion-icon> Processing...';
+            btn.style.opacity = '0.8';
+
+            setTimeout(() => {
+                document.getElementById('successOverlay').classList.add('active');
+                // Confetti or sound effects could go here
+            }, 1500);
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cartItems');
+        }
+
+        // Initialize
+        loadOrderSummary();
+    </script>
+    <style>
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</body>
+
+</html>

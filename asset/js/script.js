@@ -75,6 +75,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Navigation & Link Fixing Helper ---
+    function fixNavLinks() {
+        // Determine if we are in the 'asset/pages/' directory structure
+        const isPagesDir = window.location.pathname.includes('/asset/pages/');
+        // Target both Header, Footer, and Cart Icon links
+        // Note: We use a broader selector because footer might not have ID 'footer' on the UL itself, 
+        // but is inside div#footer or footer.magic-footer
+        const navLinks = document.querySelectorAll('.nav-menu a, #footer a, .magic-footer a, .cart-wrapper');
+
+        navLinks.forEach(link => {
+            // Check if already fixed to avoid infinite loops or double-prefixing
+            if (link.dataset.fixed === 'true') return;
+
+            const href = link.getAttribute('href');
+            if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('javascript')) return;
+
+            if (isPagesDir) {
+                // We are in asset/pages/
+                if (href.includes('asset/pages/')) {
+                    // Link to sibling page (e.g. "asset/pages/shop.html") -> "shop.html"
+                    if (!href.startsWith('..')) {
+                        link.setAttribute('href', href.replace('asset/pages/', ''));
+                    }
+                } else if (!href.startsWith('../')) {
+                    // Link to root (e.g. "index.html") -> "../../index.html"
+                    link.setAttribute('href', '../../' + href);
+                }
+            }
+
+            // Mark as fixed
+            link.dataset.fixed = 'true';
+        });
+
+        applyActiveNavLink(); // Re-apply active state after fixing links
+    }
+
+    // Initial fix
+    fixNavLinks();
+
+    // Observe for async loaded content (Header/Footer)
+    const contentObserver = new MutationObserver((mutations) => {
+        let shouldUpdate = false;
+        mutations.forEach(mutation => {
+            if (mutation.addedNodes.length > 0) {
+                shouldUpdate = true;
+            }
+        });
+
+        if (shouldUpdate) {
+            fixNavLinks();
+        }
+    });
+
+    contentObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
     // --- 3. Scroll Reveal Animations ---
     const revealElements = document.querySelectorAll('.reveal');
 
