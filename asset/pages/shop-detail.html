@@ -286,9 +286,11 @@
     <script src="../js/script.js"></script>
     <script>
         // Load Header/Footer
-        // Load Header/Footer
         fetch('../component/header.html').then(r => r.text()).then(d => {
             document.getElementById('header').innerHTML = d;
+            
+            // Initialize mobile menu after header is loaded
+            initializeMobileMenu();
 
             // Check and update badge immediately
             const items = JSON.parse(localStorage.getItem('cartItems')) || [];

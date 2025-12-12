@@ -266,6 +266,8 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
+                // Initialize mobile menu after header is loaded
+                initializeMobileMenu();
                 updateCartBadge();
             });
 

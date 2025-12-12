@@ -36,6 +36,72 @@ function applyActiveNavLink() {
     return true;
 }
 
+// Function to initialize mobile menu after header is loaded
+function initializeMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (!hamburger || !navMenu) return;
+    
+    // Remove any existing event listeners
+    hamburger.removeEventListener('click', handleHamburgerClick);
+    
+    // Add click event listener to hamburger
+    hamburger.addEventListener('click', handleHamburgerClick);
+    
+    // Close menu when clicking on nav links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    });
+}
+
+function handleHamburgerClick(e) {
+    e.preventDefault();
+    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.hamburger');
+    
+    if (!navMenu || !hamburger) return;
+    
+    // Toggle menu
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    
+    // Animate hamburger bars
+    const bars = hamburger.querySelectorAll('.bar');
+    if (bars.length >= 3) {
+        if (hamburger.classList.contains('active')) {
+            bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            bars[1].style.opacity = '0';
+            bars[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+        } else {
+            bars[0].style.transform = 'none';
+            bars[1].style.opacity = '1';
+            bars[2].style.transform = 'none';
+        }
+    }
+}
+
+function closeMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.hamburger');
+    
+    if (navMenu) navMenu.classList.remove('active');
+    if (hamburger) {
+        hamburger.classList.remove('active');
+        const bars = hamburger.querySelectorAll('.bar');
+        if (bars.length >= 3) {
+            bars[0].style.transform = 'none';
+            bars[1].style.opacity = '1';
+            bars[2].style.transform = 'none';
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. Custom Cursor "Reading Light" ---
@@ -82,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Target both Header, Footer, and Cart Icon links
         // Note: We use a broader selector because footer might not have ID 'footer' on the UL itself, 
         // but is inside div#footer or footer.magic-footer
-        const navLinks = document.querySelectorAll('.nav-menu a, #footer a, .magic-footer a, .cart-wrapper');
+        const navLinks = document.querySelectorAll('.nav-menu a, #footer a, .magic-footer a, .cart-wrapper, .logo');
 
         navLinks.forEach(link => {
             // Check if already fixed to avoid infinite loops or double-prefixing
@@ -180,52 +246,4 @@ document.addEventListener('DOMContentLoaded', () => {
             subtree: true
         });
     }
-
-    // --- Mobile Menu Logic (Event Delegation) ---
-    // Using delegation avoids async loading issues entirely
-    document.body.addEventListener('click', (e) => {
-        const hamburger = e.target.closest('.hamburger');
-        const navLink = e.target.closest('.nav-link');
-        const navMenu = document.querySelector('.nav-menu');
-        const hamburgerBtn = document.querySelector('.hamburger');
-
-        // Toggle Menu
-        if (hamburger && navMenu) {
-            e.preventDefault(); // Prevent default if it's a link/button
-            // Use the found hamburger button specifically, not just what was clicked
-            const activeBtn = hamburger.closest('.hamburger');
-            if (activeBtn) {
-                navMenu.classList.toggle('active');
-                activeBtn.classList.toggle('active');
-
-                // Animate bars
-                const bars = activeBtn.querySelectorAll('.bar');
-                if (bars.length >= 3) {
-                    if (activeBtn.classList.contains('active')) {
-                        bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                        bars[1].style.opacity = '0';
-                        bars[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
-                    } else {
-                        bars[0].style.transform = 'none';
-                        bars[1].style.opacity = '1';
-                        bars[2].style.transform = 'none';
-                    }
-                }
-            }
-        }
-
-        // Close Menu on Link Click
-        else if (navLink && navMenu && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            if (hamburgerBtn) {
-                hamburgerBtn.classList.remove('active');
-                const bars = hamburgerBtn.querySelectorAll('.bar');
-                if (bars.length >= 3) {
-                    bars[0].style.transform = 'none';
-                    bars[1].style.opacity = '1';
-                    bars[2].style.transform = 'none';
-                }
-            }
-        }
-    });
 });

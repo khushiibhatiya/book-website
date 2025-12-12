@@ -146,12 +146,19 @@
         function loadComponent(id, file) {
             fetch(file)
                 .then(res => res.text())
-                .then(data => document.getElementById(id).innerHTML = data);
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    // Initialize mobile menu after header is loaded
+                    if (id === 'header') {
+                        setTimeout(() => {
+                            initializeMobileMenu();
+                            updateCartBadge();
+                        }, 50);
+                    }
+                });
         }
         loadComponent('header', 'asset/component/header.html');
         loadComponent('footer', 'asset/component/footer.html');
-        // Update cart badge after header loads
-        setTimeout(updateCartBadge, 100);
     </script>
 </body>
 

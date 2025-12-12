@@ -364,6 +364,8 @@
             .then(data => {
                 document.getElementById('header').innerHTML = data;
                 updateCartBadge();
+                // Initialize mobile menu after header is loaded
+                initializeMobileMenu();
             })
             .catch(error => console.error('Error loading header:', error));
 

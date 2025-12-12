@@ -517,6 +517,8 @@
         // Load Header & Footer
         fetch('../component/header.html').then(r => r.text()).then(d => {
             document.getElementById('header').innerHTML = d;
+            // Initialize mobile menu after header is loaded
+            initializeMobileMenu();
             const badge = document.querySelector('.cart-badge');
             if (badge) badge.style.display = 'none'; // Optional: hide cart badge in checkout
         });

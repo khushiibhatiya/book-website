@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Navigation Test</title>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+    
+    <main style="padding: 100px 20px;">
+        <h1>Test Page for Mobile Navigation</h1>
+        <p>This page is used to test if the mobile navigation works properly.</p>
+        <p>Try resizing your browser to mobile size (max-width: 968px) and click the hamburger menu.</p>
+        <p>The navigation menu should slide down from the top and show all navigation links.</p>
+    </main>
+    
+    <script src="asset/js/script.js"></script>
+    <script>
+        // Load header and initialize mobile menu
+        fetch('asset/component/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+                // Initialize mobile menu after header is loaded
+                initializeMobileMenu();
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+</body>
+</html>
