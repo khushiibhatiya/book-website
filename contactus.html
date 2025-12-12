@@ -7,6 +7,7 @@
     <title>Contact Us - BookLover</title>
     <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="asset/css/contactus_css.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -16,21 +17,21 @@
     <!-- Dynamic Header -->
     <div id="header"></div>
 
-    <section class="contact-page">
+    <section class="contact-page" data-aos="fade-up">
         <!-- Background Blobs -->
         <div class="blob c-blob-1"></div>
         <div class="blob c-blob-2"></div>
 
         <div class="container contact-main">
             <!-- Left: Text & Info -->
-            <div class="contact-info reveal">
+            <div class="contact-info reveal" data-aos="fade-right">
                 <span class="badge-pill">Let's Talk</span>
                 <h1>Get in <br><span>Touch.</span></h1>
                 <p>Have a question about our library, courses, or just want to say hello? We'd love to hear from you.
                 </p>
 
                 <div class="info-grid">
-                    <div class="info-card">
+                    <div class="info-card" data-aos="zoom-in" data-aos-delay="50">
                         <div class="icon-box i-mail">
                             <ion-icon name="mail-open-outline"></ion-icon>
                         </div>
@@ -40,7 +41,7 @@
                         </div>
                     </div>
 
-                    <div class="info-card">
+                    <div class="info-card" data-aos="zoom-in" data-aos-delay="150">
                         <div class="icon-box i-map">
                             <ion-icon name="map-outline"></ion-icon>
                         </div>
@@ -50,7 +51,7 @@
                         </div>
                     </div>
 
-                    <div class="info-card">
+                    <div class="info-card" data-aos="zoom-in" data-aos-delay="250">
                         <div class="icon-box i-phone">
                             <ion-icon name="call-outline"></ion-icon>
                         </div>
@@ -68,7 +69,8 @@
             </div>
 
             <!-- Right: Creative Form -->
-            <div class="contact-form-wrapper reveal" style="transition-delay: 0.2s;">
+            <div class="contact-form-wrapper reveal" style="transition-delay: 0.2s;" data-aos="fade-left"
+                data-aos-delay="200">
                 <form class="glass-form">
                     <div class="form-header">
                         <h3>Send a Message</h3>
@@ -113,7 +115,16 @@
     <!-- Scripts -->
     <script src="asset/js/script.js"></script>
     <script src="asset/js/cart.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 80
+            });
+        });
+
         // Fetch Header & Footer
         function loadComponent(id, file) {
             fetch(file)

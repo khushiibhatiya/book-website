@@ -7,6 +7,7 @@
     <title>Services - BookLover</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/services_css.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -16,9 +17,9 @@
     <div id="header"></div>
 
     <!-- 1. Hero: Split creative Layout -->
-    <section class="services-hero">
+    <section class="services-hero" data-aos="fade-up">
         <div class="container hero-wrapper">
-            <div class="hero-text reveal">
+            <div class="hero-text reveal" data-aos="fade-right">
                 <div class="badge-pill-anim">
                     <ion-icon name="star"></ion-icon> Premium Experience
                 </div>
@@ -32,17 +33,17 @@
                 </div>
             </div>
 
-            <div class="hero-visual reveal-right">
+            <div class="hero-visual reveal-right" data-aos="fade-left" data-aos-delay="150">
                 <div class="visual-circle"></div>
-                <div class="float-card card-1 glass">
+                <div class="float-card card-1 glass" data-aos="zoom-in" data-aos-delay="50">
                     <div class="fc-icon ic-1"><ion-icon name="book"></ion-icon></div>
                     <span>Curated</span>
                 </div>
-                <div class="float-card card-2 glass">
+                <div class="float-card card-2 glass" data-aos="zoom-in" data-aos-delay="150">
                     <div class="fc-icon ic-2"><ion-icon name="headset"></ion-icon></div>
                     <span>Audio</span>
                 </div>
-                <div class="float-card card-3 glass">
+                <div class="float-card card-3 glass" data-aos="zoom-in" data-aos-delay="250">
                     <div class="fc-icon ic-3"><ion-icon name="people"></ion-icon></div>
                     <span>Community</span>
                 </div>
@@ -51,13 +52,13 @@
     </section>
 
     <!-- 2. 3D Flip Cards Grid -->
-    <section class="services-3d-section container reveal">
-        <div class="section-header center-text">
+    <section class="services-3d-section container reveal" data-aos="fade-up">
+        <div class="section-header center-text" data-aos="fade-up">
             <h2>Our Core Offerings</h2>
         </div>
         <div class="flip-grid">
             <!-- Card 1 -->
-            <div class="flip-card-container">
+            <div class="flip-card-container" data-aos="flip-left" data-aos-delay="50">
                 <div class="flip-card">
                     <div class="card-front f-blue">
                         <ion-icon name="cube-outline"></ion-icon>
@@ -73,7 +74,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="flip-card-container">
+            <div class="flip-card-container" data-aos="flip-left" data-aos-delay="150">
                 <div class="flip-card">
                     <div class="card-front f-purple">
                         <ion-icon name="mic-outline"></ion-icon>
@@ -89,7 +90,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="flip-card-container">
+            <div class="flip-card-container" data-aos="flip-left" data-aos-delay="250">
                 <div class="flip-card">
                     <div class="card-front f-pink">
                         <ion-icon name="rose-outline"></ion-icon>
@@ -107,14 +108,14 @@
     </section>
 
     <!-- 3. Journey/Timeline Section (ZigZag) -->
-    <section class="journey-section container reveal">
-        <div class="section-header center-text">
+    <section class="journey-section container reveal" data-aos="fade-up">
+        <div class="section-header center-text" data-aos="fade-up">
             <h2>Your Journey</h2>
         </div>
 
         <div class="timeline">
             <!-- Step 1 -->
-            <div class="timeline-item">
+            <div class="timeline-item" data-aos="fade-right">
                 <div class="t-content left">
                     <h3>1. Discovery</h3>
                     <p>Take our AI-powered quiz to find your unique reader profile and hidden gems.</p>
@@ -124,7 +125,7 @@
             </div>
 
             <!-- Step 2 -->
-            <div class="timeline-item">
+            <div class="timeline-item" data-aos="fade-left">
                 <div class="t-content right">
                     <h3>2. Curation</h3>
                     <p>Our experts hand-pick books specifically for you, ensuring every page is a delight.</p>
@@ -134,7 +135,7 @@
             </div>
 
             <!-- Step 3 -->
-            <div class="timeline-item">
+            <div class="timeline-item" data-aos="fade-right">
                 <div class="t-content left">
                     <h3>3. Connection</h3>
                     <p>Join a micro-community of readers enjoying the exact same book as you.</p>
@@ -149,7 +150,16 @@
 
     <script src="../js/script.js"></script>
     <script src="../js/cart.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 80
+            });
+        });
+
         function loadComponent(id, file) {
             fetch(file)
                 .then(res => res.text())

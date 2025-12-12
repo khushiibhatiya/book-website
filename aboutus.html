@@ -7,6 +7,7 @@
     <title>About Us - BookLover</title>
     <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="asset/css/aboutus_css.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -17,11 +18,11 @@
     <div id="header"></div>
 
     <!-- About Hero -->
-    <section class="about-hero">
+    <section class="about-hero" data-aos="fade-up">
         <div class="blob a-blob-1"></div>
         <div class="blob a-blob-2"></div>
 
-        <div class="container about-intro reveal">
+        <div class="container about-intro reveal" data-aos="fade-up" data-aos-delay="100">
             <span class="pill-badge">Our Story</span>
             <h1>We Are Building the <br><span>Future of Reading</span></h1>
             <p>BookLover started with a simple idea: to make knowledge accessible, engaging, and community-driven. We're
@@ -30,9 +31,9 @@
     </section>
 
     <!-- Mission & Vision Cards -->
-    <section class="mission-section container reveal">
+    <section class="mission-section container reveal" data-aos="fade-up">
         <div class="mission-grid">
-            <div class="mission-card glass">
+            <div class="mission-card glass" data-aos="zoom-in" data-aos-delay="50">
                 <div class="m-icon icon-rocket">
                     <ion-icon name="rocket-outline"></ion-icon>
                 </div>
@@ -40,7 +41,7 @@
                 <p>To empower 10 million readers worldwide by providing the best curated content and learning tools.</p>
             </div>
 
-            <div class="mission-card glass">
+            <div class="mission-card glass" data-aos="zoom-in" data-aos-delay="150">
                 <div class="m-icon icon-eye">
                     <ion-icon name="eye-outline"></ion-icon>
                 </div>
@@ -48,7 +49,7 @@
                 <p>A world where everyone has instant access to the transformative power of books and community.</p>
             </div>
 
-            <div class="mission-card glass">
+            <div class="mission-card glass" data-aos="zoom-in" data-aos-delay="250">
                 <div class="m-icon icon-heart">
                     <ion-icon name="heart-outline"></ion-icon>
                 </div>
@@ -59,15 +60,15 @@
     </section>
 
     <!-- Team Section -->
-    <section class="team-section container reveal">
-        <div class="section-header center-text">
+    <section class="team-section container reveal" data-aos="fade-up">
+        <div class="section-header center-text" data-aos="fade-up">
             <h2>Meet the Minds</h2>
             <p>The dreamers and doers behind BookLover.</p>
         </div>
 
         <div class="team-grid">
             <!-- Member 1 -->
-            <div class="team-card">
+            <div class="team-card" data-aos="fade-up" data-aos-delay="50">
                 <div class="member-img">
                     <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
                         alt="CEO">
@@ -81,7 +82,7 @@
             </div>
 
             <!-- Member 2 -->
-            <div class="team-card">
+            <div class="team-card" data-aos="fade-up" data-aos-delay="150">
                 <div class="member-img">
                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
                         alt="CTO">
@@ -95,7 +96,7 @@
             </div>
 
             <!-- Member 3 -->
-            <div class="team-card">
+            <div class="team-card" data-aos="fade-up" data-aos-delay="250">
                 <div class="member-img">
                     <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80"
                         alt="Designer">
@@ -111,16 +112,16 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="stats-bar container reveal">
-        <div class="stat-item">
+    <section class="stats-bar container reveal" data-aos="fade-up">
+        <div class="stat-item" data-aos="flip-up" data-aos-delay="50">
             <strong>50K+</strong>
             <span>Active Readers</span>
         </div>
-        <div class="stat-item">
+        <div class="stat-item" data-aos="flip-up" data-aos-delay="150">
             <strong>12K+</strong>
             <span>Books Curated</span>
         </div>
-        <div class="stat-item">
+        <div class="stat-item" data-aos="flip-up" data-aos-delay="250">
             <strong>150+</strong>
             <span>Countries Reached</span>
         </div>
@@ -132,7 +133,16 @@
     <!-- Scripts -->
     <script src="asset/js/script.js"></script>
     <script src="asset/js/cart.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 80
+            });
+        });
+
         function loadComponent(id, file) {
             fetch(file)
                 .then(res => res.text())

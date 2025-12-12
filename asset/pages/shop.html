@@ -8,6 +8,7 @@
     <!-- Use main style first for variables and base -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -19,7 +20,7 @@
     <div id="header"></div>
 
     <!-- Shop Hero -->
-    <section class="shop-hero">
+    <section class="shop-hero" data-aos="fade-up">
         <div class="hero-floats">
             <ion-icon name="book-outline" class="float-item"
                 style="top: 20%; left: 10%; color: #FF6B6B; --delay: 3s;"></ion-icon>
@@ -33,7 +34,7 @@
 
         <div class="container hero-layout"
             style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 50px;">
-            <div class="hero-content" style="flex: 1; text-align: left;">
+            <div class="hero-content" style="flex: 1; text-align: left;" data-aos="fade-right">
                 <span class="pill-badge glass-pill">
                     <ion-icon name="sparkles" style="color: #FFD93D; margin-right: 5px;"></ion-icon>
                     Premium Collection
@@ -57,7 +58,8 @@
                 </div>
             </div>
 
-            <div class="hero-visual" style="flex: 1; display: flex; justify-content: center; perspective: 1500px;">
+            <div class="hero-visual" style="flex: 1; display: flex; justify-content: center; perspective: 1500px;"
+                data-aos="fade-left" data-aos-delay="150">
                 <div class="hero-book-wrapper">
                     <div class="hero-book-3d">
                         <div class="face front">
@@ -78,23 +80,25 @@
 
     <!-- Filters -->
     <div class="container">
-        <div class="category-filter">
-            <div class="filter-pill active" data-category="all">All Books</div>
-            <div class="filter-pill" data-category="fiction">Fiction</div>
-            <div class="filter-pill" data-category="self-growth">Self-Growth</div>
-            <div class="filter-pill" data-category="science">Science</div>
-            <div class="filter-pill" data-category="fantasy">Fantasy</div>
-            <div class="filter-pill" data-category="history">History</div>
+        <div class="category-filter" data-aos="fade-up">
+            <div class="filter-pill active" data-category="all" data-aos="zoom-in" data-aos-delay="50">All Books</div>
+            <div class="filter-pill" data-category="fiction" data-aos="zoom-in" data-aos-delay="100">Fiction</div>
+            <div class="filter-pill" data-category="self-growth" data-aos="zoom-in" data-aos-delay="150">Self-Growth
+            </div>
+            <div class="filter-pill" data-category="science" data-aos="zoom-in" data-aos-delay="200">Science</div>
+            <div class="filter-pill" data-category="fantasy" data-aos="zoom-in" data-aos-delay="250">Fantasy</div>
+            <div class="filter-pill" data-category="history" data-aos="zoom-in" data-aos-delay="300">History</div>
         </div>
 
         <!-- Featured / Trending -->
-        <h2 class="category-section-title"><ion-icon name="flame" style="color: #FF6B6B;"></ion-icon> Trending Now</h2>
+        <h2 class="category-section-title" data-aos="fade-up"><ion-icon name="flame"
+                style="color: #FF6B6B;"></ion-icon> Trending Now</h2>
 
         <div class="shop-grid">
             <!-- FICTION -->
 
 
-            <div class="book-card" data-category="fiction">
+            <div class="book-card" data-category="fiction" data-aos="fade-up" data-aos-delay="50">
                 <div class="book-cover">
                     <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=600"
                         alt="Lessons in Chemistry" class="book-image">
@@ -110,7 +114,7 @@
             </div>
 
             <!-- SELF GROWTH -->
-            <div class="book-card" data-category="self-growth">
+            <div class="book-card" data-category="self-growth" data-aos="fade-up" data-aos-delay="100">
                 <div class="book-cover">
                     <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&q=80&w=600"
                         alt="The Art of Impossible" class="book-image">
@@ -125,7 +129,7 @@
                 </div>
             </div>
 
-            <div class="book-card" data-category="self-growth">
+            <div class="book-card" data-category="self-growth" data-aos="fade-up" data-aos-delay="150">
                 <div class="book-cover">
                     <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=600"
                         alt="Atomic Habits" class="book-image">
@@ -140,7 +144,7 @@
                 </div>
             </div>
 
-            <div class="book-card" data-category="self-growth">
+            <div class="book-card" data-category="self-growth" data-aos="fade-up" data-aos-delay="200">
                 <div class="book-cover">
                     <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=600"
                         alt="The Mountain Is You" class="book-image">
@@ -156,7 +160,7 @@
             </div>
 
             <!-- FANTASY -->
-            <div class="book-card" data-category="fantasy">
+            <div class="book-card" data-category="fantasy" data-aos="fade-up" data-aos-delay="250">
                 <div class="badge-new">Trending</div>
                 <div class="book-cover">
                     <img src="https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&q=80&w=600"
@@ -174,7 +178,7 @@
 
 
 
-            <div class="book-card" data-category="fantasy">
+            <div class="book-card" data-category="fantasy" data-aos="fade-up" data-aos-delay="300">
                 <div class="badge-new">New Release</div>
                 <div class="book-cover">
                     <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=600"
@@ -191,7 +195,7 @@
             </div>
 
             <!-- SCIENCE -->
-            <div class="book-card" data-category="science">
+            <div class="book-card" data-category="science" data-aos="fade-up" data-aos-delay="350">
                 <div class="book-cover">
                     <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&q=80&w=600"
                         alt="Why We Die" class="book-image">
@@ -206,7 +210,7 @@
                 </div>
             </div>
 
-            <div class="book-card" data-category="science">
+            <div class="book-card" data-category="science" data-aos="fade-up" data-aos-delay="400">
                 <div class="book-cover">
                     <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600"
                         alt="Sapiens" class="book-image">
@@ -222,7 +226,7 @@
             </div>
 
             <!-- HISTORY -->
-            <div class="book-card" data-category="history">
+            <div class="book-card" data-category="history" data-aos="fade-up" data-aos-delay="450">
                 <div class="book-cover">
                     <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&q=80&w=600"
                         alt="The Wager" class="book-image">
@@ -245,9 +249,18 @@
     <!-- Main Interactions Script -->
     <script src="../js/script.js"></script>
     <script src="../js/cart.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <!-- Header/Footer Loading Script -->
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 80
+            });
+        });
+
         // Initialize Header and Footer
         fetch('../component/header.html')
             .then(response => response.text())
