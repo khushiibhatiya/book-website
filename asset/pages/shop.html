@@ -249,14 +249,14 @@
     <!-- Header/Footer Loading Script -->
     <script>
         // Initialize Header and Footer
-        fetch('header.html')
+        fetch('../component/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
                 updateCartBadge();
             });
 
-        fetch('footer.html')
+        fetch('../component/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;

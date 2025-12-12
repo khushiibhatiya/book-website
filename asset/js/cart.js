@@ -96,5 +96,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Open cart in modal or navigate to cart page
 function openCart() {
-    window.location.href = 'asset/component/cart.html';
+    window.location.href = '/asset/pages/cart.html';
 }

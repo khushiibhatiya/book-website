@@ -1,3 +1,41 @@
+function normalizePath(path) {
+    if (!path) return '/index.html';
+    const cleanPath = path.split('?')[0].split('#')[0] || '/index.html';
+    if (cleanPath === '/' || cleanPath === '') {
+        return '/index.html';
+    }
+    return cleanPath.endsWith('/') ? cleanPath.slice(0, -1) : cleanPath;
+}
+
+function applyActiveNavLink() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (!navLinks.length) {
+        return false;
+    }
+
+    const currentPath = normalizePath(window.location.pathname);
+    let matched = false;
+
+    navLinks.forEach(link => {
+        const linkPath = normalizePath(new URL(link.href).pathname);
+        const isMatch = currentPath === linkPath || currentPath.endsWith(linkPath);
+
+        if (isMatch && !matched) {
+            link.classList.add('active');
+            matched = true;
+        } else {
+            link.classList.remove('active');
+        }
+    });
+
+    // If nothing matched (e.g., custom pages), keep the first link highlighted as fallback
+    if (!matched && navLinks[0]) {
+        navLinks[0].classList.add('active');
+    }
+
+    return true;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. Custom Cursor "Reading Light" ---
@@ -72,4 +110,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    if (!applyActiveNavLink()) {
+        const headerObserver = new MutationObserver((mutations, observer) => {
+            if (applyActiveNavLink()) {
+                observer.disconnect();
+            }
+        });
+
+        headerObserver.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
 });
