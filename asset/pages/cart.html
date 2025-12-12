@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Magical Shop</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        .cart-page {
+            padding: 120px 0 80px;
+            min-height: 80vh;
+            background: radial-gradient(circle at top right, #f8faff, #fff);
+        }
+
+        .cart-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .cart-list {
+            flex: 2;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .cart-summary {
+            flex: 1;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            height: fit-content;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 100px;
+            animation: slideUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .cart-page-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--text-main);
+        }
+
+        /* Cart Item Page Style */
+        .cart-page-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .cart-page-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 20px 10px;
+            /* Adjust padding to keep alignment */
+            border-bottom: 1px solid transparent;
+        }
+
+        .cart-page-item img {
+            width: 80px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-main);
+        }
+
+        .item-author {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .item-price {
+            color: var(--shop-primary);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.2s;
+        }
+
+        .remove-btn:hover {
+            transform: scale(1.2);
+        }
+
+        /* Summary Styles */
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--text-body);
+        }
+
+        .summary-total {
+            font-weight: 800;
+            font-size: 22px;
+            color: var(--text-main);
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .checkout-page-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--shop-primary);
+            /* Defined in shop.css or define fallback */
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .checkout-page-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(max-width: 768px) {
+            .cart-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <section class="cart-page">
+        <div class="cart-container">
+            <div class="cart-list">
+                <h1 class="cart-page-title">Your Shopping Bag</h1>
+                <div id="cart-content">
+                    <!-- Items go here -->
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h2 style="margin-bottom: 25px; font-family: 'Outfit';">Order Summary</h2>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total</span>
+                    <span id="total">$0.00</span>
+                </div>
+                <button class="checkout-page-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/cart.js"></script>
+
+    <script>
+        // Load Header/Footer
+        fetch('header.html').then(r => r.text()).then(d => {
+            document.getElementById('header').innerHTML = d;
+            updateCartBadge();
+        });
+        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('footer').innerHTML = d);
+
+        // Render Cart
+        function renderCartPage() {
+            const items = cart.getItems();
+            const container = document.getElementById('cart-content');
+            const subtotalEl = document.getElementById('subtotal');
+            const totalEl = document.getElementById('total');
+
+            if (items.length === 0) {
+                container.innerHTML = '<p style="text-align:center; padding: 40px; color: #888;">Your bag is currently empty.</p>';
+                subtotalEl.innerText = '$0.00';
+                totalEl.innerText = '$0.00';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            items.forEach((item, index) => {
+                const price = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+                total += price;
+                html += `
+                    <div class="cart-page-item">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="item-details">
+                            <div class="item-title">${item.title}</div>
+                            <div class="item-author">${item.author}</div>
+                        </div>
+                        <div class="item-price">${item.price}</div>
+                        <button class="remove-btn" onclick="removeItemFromCart(${index})">
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </button>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            subtotalEl.innerText = '$' + total.toFixed(2);
+            totalEl.innerText = '$' + total.toFixed(2);
+        }
+
+        window.removeItemFromCart = function (index) {
+            cart.removeItem(index);
+            renderCartPage();
+            updateCartBadge();
+        };
+
+        // Render cart on page load
+        document.addEventListener('DOMContentLoaded', renderCartPage);
+    </script>
+</body>
+
+</html>

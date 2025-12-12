@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - BookLover</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/services_css.css">
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <!-- 1. Hero: Split creative Layout -->
+    <section class="services-hero">
+        <div class="container hero-wrapper">
+            <div class="hero-text reveal">
+                <div class="badge-pill-anim">
+                    <ion-icon name="star"></ion-icon> Premium Experience
+                </div>
+                <h1>Elevate Your <br><span class="gradient-text">Reading Life.</span></h1>
+                <p>Unlock a universe of stories with our curated boxes, immersive audiobooks, and exclusive author
+                    events.</p>
+                <div class="hero-actions">
+                    <a href="#" class="btn btn-primary glow-btn">Start Free Trial <ion-icon
+                            name="arrow-forward"></ion-icon></a>
+                    <a href="#" class="btn btn-secondary">View Pricing</a>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal-right">
+                <div class="visual-circle"></div>
+                <div class="float-card card-1 glass">
+                    <div class="fc-icon ic-1"><ion-icon name="book"></ion-icon></div>
+                    <span>Curated</span>
+                </div>
+                <div class="float-card card-2 glass">
+                    <div class="fc-icon ic-2"><ion-icon name="headset"></ion-icon></div>
+                    <span>Audio</span>
+                </div>
+                <div class="float-card card-3 glass">
+                    <div class="fc-icon ic-3"><ion-icon name="people"></ion-icon></div>
+                    <span>Community</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 3D Flip Cards Grid -->
+    <section class="services-3d-section container reveal">
+        <div class="section-header center-text">
+            <h2>Our Core Offerings</h2>
+        </div>
+        <div class="flip-grid">
+            <!-- Card 1 -->
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <div class="card-front f-blue">
+                        <ion-icon name="cube-outline"></ion-icon>
+                        <h3>Book Boxes</h3>
+                        <p>Monthly Magic</p>
+                    </div>
+                    <div class="card-back f-blue-dark">
+                        <h3>Curated Boxes</h3>
+                        <p>Hand-picked physical books, themed goodies, and author notes delivered to your door.</p>
+                        <a href="#" class="btn-flip">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <div class="card-front f-purple">
+                        <ion-icon name="mic-outline"></ion-icon>
+                        <h3>Audio</h3>
+                        <p>Immersive Listening</p>
+                    </div>
+                    <div class="card-back f-purple-dark">
+                        <h3>Studio Audiobooks</h3>
+                        <p>Professional narrations with soundscapes that bring stories to life.</p>
+                        <a href="#" class="btn-flip">Listen Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <div class="card-front f-pink">
+                        <ion-icon name="rose-outline"></ion-icon>
+                        <h3>Events</h3>
+                        <p>Meet Authors</p>
+                    </div>
+                    <div class="card-back f-pink-dark">
+                        <h3>Live Signings</h3>
+                        <p>Virtual and in-person meetups with your favorite bestselling authors.</p>
+                        <a href="#" class="btn-flip">View Calendar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Journey/Timeline Section (ZigZag) -->
+    <section class="journey-section container reveal">
+        <div class="section-header center-text">
+            <h2>Your Journey</h2>
+        </div>
+
+        <div class="timeline">
+            <!-- Step 1 -->
+            <div class="timeline-item">
+                <div class="t-content left">
+                    <h3>1. Discovery</h3>
+                    <p>Take our AI-powered quiz to find your unique reader profile and hidden gems.</p>
+                </div>
+                <div class="t-dot"></div>
+                <div class="t-date">Step 01</div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-item">
+                <div class="t-content right">
+                    <h3>2. Curation</h3>
+                    <p>Our experts hand-pick books specifically for you, ensuring every page is a delight.</p>
+                </div>
+                <div class="t-dot"></div>
+                <div class="t-date">Step 02</div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-item">
+                <div class="t-content left">
+                    <h3>3. Connection</h3>
+                    <p>Join a micro-community of readers enjoying the exact same book as you.</p>
+                </div>
+                <div class="t-dot"></div>
+                <div class="t-date">Step 03</div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(res => res.text())
+                .then(data => document.getElementById(id).innerHTML = data);
+        }
+        loadComponent('header', '../component/header.html');
+        loadComponent('footer', '../component/footer.html');
+        // Update cart badge after header loads
+        setTimeout(updateCartBadge, 100);
+    </script>
+</body>
+
+</html>

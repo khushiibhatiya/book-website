@@ -1,0 +1,264 @@
+/* About Us Page Styles */
+
+/* --- Hero Section --- */
+.about-hero {
+    position: relative;
+    padding: 180px 0 100px;
+    text-align: center;
+    background: radial-gradient(circle at center, #fdfbfb, #f0f4f8);
+    overflow: hidden;
+}
+
+.a-blob-1 {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(108, 93, 211, 0.1), transparent 70%);
+    /* Purple Tint */
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: floatBlob 15s infinite alternate;
+}
+
+.a-blob-2 {
+    position: absolute;
+    bottom: -50px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.1), transparent 70%);
+    /* Red Tint */
+    border-radius: 50%;
+    filter: blur(50px);
+    animation: floatBlob 12s infinite alternate-reverse;
+}
+
+.pill-badge {
+    background: var(--text-main);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 24px;
+}
+
+.about-intro h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--text-main);
+}
+
+.about-intro h1 span {
+    background: linear-gradient(135deg, var(--primary), #FF8E53);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-intro p {
+    font-size: 20px;
+    color: var(--text-body);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Mission Grid --- */
+.mission-section {
+    padding: 60px 0;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.mission-card {
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    transition: transform 0.4s ease;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.mission-card:hover {
+    transform: translateY(-10px);
+    background: white;
+}
+
+.m-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin: 0 auto 24px;
+}
+
+.icon-rocket {
+    background: #E0F2FE;
+    color: #0ea5e9;
+}
+
+.icon-eye {
+    background: #F3E8FF;
+    color: #9333ea;
+}
+
+.icon-heart {
+    background: #FFE4E6;
+    color: #f43f5e;
+}
+
+.mission-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.mission-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-body);
+}
+
+/* --- Team Section --- */
+.team-section {
+    padding: 100px 0;
+}
+
+.center-text {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.center-text h2 {
+    font-size: 42px;
+    margin-bottom: 16px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.team-card {
+    text-align: center;
+}
+
+.member-img {
+    width: 100%;
+    height: 350px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.social-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    display: flex;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    padding: 10px 20px;
+    border-radius: 30px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.team-card:hover .member-img img {
+    transform: scale(1.1);
+}
+
+.team-card:hover .social-overlay {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.social-overlay a {
+    color: var(--text-main);
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-overlay a:hover {
+    color: var(--primary);
+}
+
+.team-card h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.team-card span {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- Stats Bar --- */
+.stats-bar {
+    background: var(--text-main);
+    /* Dark bar */
+    border-radius: 30px;
+    padding: 60px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    margin-bottom: 60px;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: var(--tertiary);
+    /* Yellow pop */
+}
+
+.stat-item span {
+    font-size: 16px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-intro h1 {
+        font-size: 42px;
+    }
+
+    .stats-bar {
+        flex-direction: column;
+        padding: 40px;
+    }
+}
