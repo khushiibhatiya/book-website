@@ -497,3 +497,18 @@
         display: none;
     }
 }
+
+@media (max-width: 900px) {
+    .flip-grid {
+        margin: 20px;
+    }
+
+    .services-3d-section {
+        margin: 20px;
+    }
+
+    .services-hero {
+        margin: 20px;
+    }
+
+}

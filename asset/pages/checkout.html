@@ -337,13 +337,36 @@
             }
         }
 
-        @media(max-width: 900px) {
-            .container {
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .checkout-container {
                 flex-direction: column;
+                gap: 30px;
+            }
+
+            .checkout-page {
+                padding: 100px 0 40px;
             }
 
             .summary-card {
                 position: static;
+                animation: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .input-row {
+                flex-direction: column;
+                gap: 0;
+                /* Let margin-bottom handle spacing if needed, or keep small gap */
+            }
+
+            .payment-methods {
+                flex-direction: column;
+            }
+
+            .input-group {
+                margin-bottom: 20px;
             }
         }
     </style>

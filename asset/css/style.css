@@ -262,6 +262,7 @@ body:hover .cursor-light {
         top: 0;
         border-radius: 0;
         animation: none;
+        padding: 0;
     }
 
     .header-inner {
@@ -271,17 +272,46 @@ body:hover .cursor-light {
         border: none;
     }
 
+    /* Mobile Menu */
     .nav-menu {
-        display: none;
-        /* Needs JS to toggle */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 998;
+        /* Behind header-right but high enough */
+        border-radius: 0;
+        padding: 0;
+        opacity: 0;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-link {
+        font-size: 24px;
+        padding: 10px 0;
     }
 
     .hamburger {
         display: flex;
+        z-index: 999;
     }
 
+    .header-right .btn,
     .btn-sm {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -1842,11 +1872,24 @@ body:hover .cursor-light {
 }
 
 @media (max-width: 900px) {
+
     .bento-grid {
         grid-template-columns: 1fr;
     }
 
     .b-large {
         height: 400px;
+    }
+
+    .categories-section {
+        margin: 20px;
+    }
+
+    .benefits-section {
+        margin: 20px;
+    }
+
+    .spotlight-section {
+        margin: 20px;
     }
 }

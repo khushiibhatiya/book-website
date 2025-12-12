@@ -261,4 +261,20 @@
         flex-direction: column;
         padding: 40px;
     }
+
+
+}
+
+@media (max-width: 900px) {
+    .mission-section {
+        margin: 20px;
+    }
+
+    .team-section {
+        margin: 20px;
+    }
+
+    .stats-bar {
+        margin: 20px;
+    }
 }

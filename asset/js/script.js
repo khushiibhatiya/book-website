@@ -180,4 +180,52 @@ document.addEventListener('DOMContentLoaded', () => {
             subtree: true
         });
     }
+
+    // --- Mobile Menu Logic (Event Delegation) ---
+    // Using delegation avoids async loading issues entirely
+    document.body.addEventListener('click', (e) => {
+        const hamburger = e.target.closest('.hamburger');
+        const navLink = e.target.closest('.nav-link');
+        const navMenu = document.querySelector('.nav-menu');
+        const hamburgerBtn = document.querySelector('.hamburger');
+
+        // Toggle Menu
+        if (hamburger && navMenu) {
+            e.preventDefault(); // Prevent default if it's a link/button
+            // Use the found hamburger button specifically, not just what was clicked
+            const activeBtn = hamburger.closest('.hamburger');
+            if (activeBtn) {
+                navMenu.classList.toggle('active');
+                activeBtn.classList.toggle('active');
+
+                // Animate bars
+                const bars = activeBtn.querySelectorAll('.bar');
+                if (bars.length >= 3) {
+                    if (activeBtn.classList.contains('active')) {
+                        bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                        bars[1].style.opacity = '0';
+                        bars[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+                    } else {
+                        bars[0].style.transform = 'none';
+                        bars[1].style.opacity = '1';
+                        bars[2].style.transform = 'none';
+                    }
+                }
+            }
+        }
+
+        // Close Menu on Link Click
+        else if (navLink && navMenu && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            if (hamburgerBtn) {
+                hamburgerBtn.classList.remove('active');
+                const bars = hamburgerBtn.querySelectorAll('.bar');
+                if (bars.length >= 3) {
+                    bars[0].style.transform = 'none';
+                    bars[1].style.opacity = '1';
+                    bars[2].style.transform = 'none';
+                }
+            }
+        }
+    });
 });
