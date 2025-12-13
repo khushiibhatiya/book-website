@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookLover - Learn, Grow, Succeed</title>
     <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/shop.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -105,48 +106,170 @@
 
         <div class="cat-grid">
             <!-- Card 1 -->
-            <div class="cat-card glass reveal" data-aos="zoom-in" data-aos-delay="50">
+            <a href="asset/pages/shop.html?category=self-growth" class="cat-card glass reveal" data-aos="zoom-in"
+                data-aos-delay="50">
                 <div class="cat-bg" style="background: linear-gradient(135deg, #FF6B6B, #db3636);"></div>
                 <div class="cat-icon c-1">
                     <ion-icon name="bulb-outline"></ion-icon>
                 </div>
-                <h3>Critical Thinking</h3>
+                <h3>Self Growth</h3>
                 <p>Sharpen your mind.</p>
-                <a href="#" class="cat-arrow"><ion-icon name="arrow-forward"></ion-icon></a>
-            </div>
+                <div class="cat-arrow"><ion-icon name="arrow-forward"></ion-icon></div>
+            </a>
 
             <!-- Card 2 -->
-            <div class="cat-card glass reveal" data-aos="zoom-in" data-aos-delay="100">
+            <a href="asset/pages/shop.html?category=history" class="cat-card glass reveal" data-aos="zoom-in"
+                data-aos-delay="100">
                 <div class="cat-bg" style="background: linear-gradient(135deg, #4D96FF, #2968c2);"></div>
                 <div class="cat-icon c-2">
                     <ion-icon name="code-slash-outline"></ion-icon>
                 </div>
-                <h3>Programming</h3>
-                <p>Build the future.</p>
-                <a href="#" class="cat-arrow"><ion-icon name="arrow-forward"></ion-icon></a>
-            </div>
+                <h3>History</h3>
+                <p>Dive into History.</p>
+                <div class="cat-arrow"><ion-icon name="arrow-forward"></ion-icon></div>
+            </a>
 
             <!-- Card 3 -->
-            <div class="cat-card glass reveal" data-aos="zoom-in" data-aos-delay="150">
+            <a href="asset/pages/shop.html?category=fiction" class="cat-card glass reveal" data-aos="zoom-in"
+                data-aos-delay="150">
                 <div class="cat-bg" style="background: linear-gradient(135deg, #6BCB77, #459650);"></div>
                 <div class="cat-icon c-3">
                     <ion-icon name="language-outline"></ion-icon>
                 </div>
-                <h3>Languages</h3>
-                <p>Connect globally.</p>
-                <a href="#" class="cat-arrow"><ion-icon name="arrow-forward"></ion-icon></a>
-            </div>
+                <h3>Fiction</h3>
+                <p>Imaginative stories.</p>
+                <div class="cat-arrow"><ion-icon name="arrow-forward"></ion-icon></div>
+            </a>
 
             <!-- Card 4 -->
-            <div class="cat-card glass reveal" data-aos="zoom-in" data-aos-delay="200">
+            <a href="asset/pages/shop.html?category=science" class="cat-card glass reveal" data-aos="zoom-in"
+                data-aos-delay="200">
                 <div class="cat-bg" style="background: linear-gradient(135deg, #FFD93D, #dcb20c);"></div>
                 <div class="cat-icon c-4">
                     <ion-icon name="rocket-outline"></ion-icon>
                 </div>
-                <h3>Space Science</h3>
+                <h3>Science</h3>
                 <p>Beyond the stars.</p>
-                <a href="#" class="cat-arrow"><ion-icon name="arrow-forward"></ion-icon></a>
-            </div>
+                <div class="cat-arrow"><ion-icon name="arrow-forward"></ion-icon></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Books Section -->
+    <section class="featured-section container" data-aos="fade-up">
+        <div class="section-header center-text reveal" data-aos="fade-up">
+            <span class="pill-badge">Trending</span>
+            <h2>Featured Collection</h2>
+            <p>Handpicked favorites from our community.</p>
+        </div>
+
+        <div class="shop-grid">
+            <!-- Book 1 -->
+            <a href="asset/pages/shop-detail.html?title=Fourth Wing&author=Rebecca Yarros&price=$18.99&image=https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&q=80&w=600"
+                class="book-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="badge-new">Trending</div>
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&q=80&w=600"
+                        alt="Fourth Wing" class="book-image">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">Fourth Wing</h3>
+                    <p class="book-author">Rebecca Yarros</p>
+                    <div class="book-footer">
+                        <div class="book-price">$18.99</div>
+                        <div class="add-btn"><ion-icon name="bag-add-outline"></ion-icon></div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Book 2 -->
+            <a href="asset/pages/shop-detail.html?title=Atomic Habits&author=James Clear&price=$19.95&image=https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=600"
+                class="book-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=600"
+                        alt="Atomic Habits" class="book-image">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">Atomic Habits</h3>
+                    <p class="book-author">James Clear</p>
+                    <div class="book-footer">
+                        <div class="book-price">$19.95</div>
+                        <div class="add-btn"><ion-icon name="bag-add-outline"></ion-icon></div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Book 3 -->
+            <a href="asset/pages/shop-detail.html?title=Lessons in Chemistry&author=Bonnie Garmus&price=$18.99&image=https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=600"
+                class="book-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=600"
+                        alt="Lessons in Chemistry" class="book-image">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">Lessons in Chemistry</h3>
+                    <p class="book-author">Bonnie Garmus</p>
+                    <div class="book-footer">
+                        <div class="book-price">$18.99</div>
+                        <div class="add-btn"><ion-icon name="bag-add-outline"></ion-icon></div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Book 4 -->
+            <a href="asset/pages/shop-detail.html?title=Why We Die&author=Venki Ramakrishnan&price=$22.00&image=https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&q=80&w=600"
+                class="book-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&q=80&w=600"
+                        alt="Why We Die" class="book-image">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">Why We Die</h3>
+                    <p class="book-author">Venki Ramakrishnan</p>
+                    <div class="book-footer">
+                        <div class="book-price">$22.00</div>
+                        <div class="add-btn"><ion-icon name="bag-add-outline"></ion-icon></div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Book 5 -->
+            <a href="asset/pages/shop-detail.html?title=The Wager&author=David Grann&price=$19.99&image=https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&q=80&w=600"
+                class="book-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&q=80&w=600"
+                        alt="The Wager" class="book-image">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">The Wager</h3>
+                    <p class="book-author">David Grann</p>
+                    <div class="book-footer">
+                        <div class="book-price">$19.99</div>
+                        <div class="add-btn"><ion-icon name="bag-add-outline"></ion-icon></div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Book 6 -->
+            <a href="asset/pages/shop-detail.html?title=Sapiens&author=Yuval Noah Harari&price=$21.00&image=https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600"
+                class="book-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="book-cover">
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600"
+                        alt="Sapiens" class="book-image">
+                </div>
+                <div class="book-details">
+                    <h3 class="book-title">Sapiens</h3>
+                    <p class="book-author">Yuval Noah Harari</p>
+                    <div class="book-footer">
+                        <div class="book-price">$21.00</div>
+                        <div class="add-btn"><ion-icon name="bag-add-outline"></ion-icon></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="center-text" style="margin-top: 60px;" data-aos="fade-up" data-aos-delay="200">
+            <a href="asset/pages/shop.html" class="btn btn-primary">Browse More Books</a>
         </div>
     </section>
 
@@ -273,8 +396,8 @@
                     </div>
                 </div>
                 <div class="spotlight-actions">
-                    <a href="#" class="btn btn-primary">Read Preview</a>
-                    <a href="#" class="btn btn-secondary">Add to List</a>
+                    <a href="asset/pages/shop-detail.html?title=The Art of Impossible&author=Steven Kotler&price=$24.99&image=https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600"
+                        class="btn btn-primary">Read Preview</a>
                 </div>
             </div>
         </div>

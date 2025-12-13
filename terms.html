@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - BookLover</title>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        .legal-header {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #1A1A2E 0%, #302b63 100%);
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 60px;
+        }
+
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            gap: 50px;
+            padding: 0 20px 100px;
+        }
+
+        .table-of-contents {
+            width: 250px;
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            display: none;
+            /* Hidden on mobile */
+        }
+
+        .toc-link {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-body);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        .toc-link:hover,
+        .toc-link.active {
+            background: rgba(77, 150, 255, 0.1);
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .legal-content {
+            flex: 1;
+        }
+
+        .legal-section {
+            margin-bottom: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .legal-section h2 {
+            font-size: 24px;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legal-section p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .legal-section ul {
+            padding-left: 20px;
+        }
+
+        .legal-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        @media (min-width: 968px) {
+            .table-of-contents {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <header class="legal-header" data-aos="fade-down">
+        <div class="container">
+            <h1 style="font-size: 48px; margin-bottom: 10px;">Terms of Service</h1>
+            <p style="opacity: 0.8;">Last updated: December 12, 2025</p>
+        </div>
+    </header>
+
+    <div class="legal-container">
+        <!-- Sticky TOC -->
+        <aside class="table-of-contents" data-aos="fade-right">
+            <h3 style="margin-bottom: 15px; font-size: 16px;">Contents</h3>
+            <a href="#intro" class="toc-link">1. Introduction</a>
+            <a href="#account" class="toc-link">2. User Accounts</a>
+            <a href="#content" class="toc-link">3. Content Policy</a>
+            <a href="#payments" class="toc-link">4. Payments</a>
+            <a href="#termination" class="toc-link">5. Termination</a>
+        </aside>
+
+        <!-- Content -->
+        <main class="legal-content">
+            <div id="intro" class="legal-section" data-aos="fade-up">
+                <h2><ion-icon name="document-text-outline" style="color: var(--primary);"></ion-icon> 1. Introduction
+                </h2>
+                <p>Welcome to BookLover. By accessing our website and using our services, you agree to be bound by these
+                    Terms of Service. Please read them carefully.</p>
+                <p>If you do not agree with any part of these terms, you may not use our services.</p>
+            </div>
+
+            <div id="account" class="legal-section" data-aos="fade-up">
+                <h2><ion-icon name="person-outline" style="color: var(--secondary);"></ion-icon> 2. User Accounts</h2>
+                <p>When you create an account with us, you must provide us with information that is accurate, complete,
+                    and current at all times. Failure to do so constitutes a breach of the Terms.</p>
+                <ul>
+                    <li>You are responsible for safeguarding the password that you use to access the Service.</li>
+                    <li>You agree not to disclose your password to any third party.</li>
+                    <li>You must notify us immediately upon becoming aware of any breach of security.</li>
+                </ul>
+            </div>
+
+            <div id="content" class="legal-section" data-aos="fade-up">
+                <h2><ion-icon name="library-outline" style="color: var(--tertiary);"></ion-icon> 3. Content Policy</h2>
+                <p>Our service allows you to post, link, store, share and otherwise make available certain information,
+                    text, graphics, videos, or other material. You are responsible for the content that you post to the
+                    Service, including its legality, reliability, and appropriateness.</p>
+            </div>
+
+            <div id="payments" class="legal-section" data-aos="fade-up">
+                <h2><ion-icon name="card-outline" style="color: var(--accent);"></ion-icon> 4. Payments & Refunds</h2>
+                <p>All purchases made through the Service are subject to our refund policy. We offer a 30-day money-back
+                    guarantee for all digital book purchases if the file is corrupted or unreadable.</p>
+            </div>
+
+            <div id="termination" class="legal-section" data-aos="fade-up">
+                <h2><ion-icon name="warning-outline" style="color: #ff4757;"></ion-icon> 5. Termination</h2>
+                <p>We may terminate or suspend access to our Service immediately, without prior notice or liability, for
+                    any reason whatsoever, including without limitation if you breach the Terms.</p>
+            </div>
+        </main>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80
+        });
+
+        fetch('asset/component/header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+
+        fetch('asset/component/footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+
+        // Sticky link active state (simple intersection observer)
+        const sections = document.querySelectorAll('.legal-section');
+        const navLinks = document.querySelectorAll('.toc-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script src="asset/js/script.js"></script>
+    <script src="asset/js/cart.js"></script>
+</body>
+
+</html>

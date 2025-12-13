@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - BookLover</title>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        /* Blog Specific Styles */
+        .blog-hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            background: radial-gradient(circle at top center, rgba(255, 107, 107, 0.1), transparent);
+            position: relative;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding-bottom: 100px;
+        }
+
+        .blog-card {
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        .blog-img-wrapper {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .blog-card:hover .blog-img-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .blog-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--text-main), #555);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover .blog-title {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .read-more {
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero" data-aos="fade-down">
+        <div class="container">
+            <span class="pill-badge">Our Journal</span>
+            <h1 class="font-outfit" style="font-size: 56px; margin: 20px 0;">Stories & Insights</h1>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--text-body); font-size: 18px;">
+                Dive into articles about reading habits, author interviews, and the future of learning.
+            </p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="container blog-grid">
+        <!-- Article 1 -->
+        <article class="blog-card glass" data-aos="fade-up" data-aos-delay="100">
+            <div class="blog-img-wrapper">
+                <span class="blog-tag">Productivity</span>
+                <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=600"
+                    alt="Reading">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span><ion-icon name="calendar-outline"></ion-icon> Oct 12, 2024</span>
+                    <span><ion-icon name="time-outline"></ion-icon> 5 min read</span>
+                </div>
+                <h2 class="blog-title">How to Build a Sustainable Reading Habit</h2>
+                <p>Consistency is key. Discover the science behind habit formation and how to read 50 books a year
+                    effortlessly.</p>
+                <a href="#" class="read-more">Read Article <ion-icon name="arrow-forward"></ion-icon></a>
+            </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="blog-card glass" data-aos="fade-up" data-aos-delay="200">
+            <div class="blog-img-wrapper">
+                <span class="blog-tag">Technology</span>
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600"
+                    alt="Digital">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span><ion-icon name="calendar-outline"></ion-icon> Oct 08, 2024</span>
+                    <span><ion-icon name="time-outline"></ion-icon> 8 min read</span>
+                </div>
+                <h2 class="blog-title">The Future of Digital Libraries</h2>
+                <p>From AI recommendations to VR reading rooms, explore how technology is reshaping the way we consume
+                    knowledge.</p>
+                <a href="#" class="read-more">Read Article <ion-icon name="arrow-forward"></ion-icon></a>
+            </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="blog-card glass" data-aos="fade-up" data-aos-delay="300">
+            <div class="blog-img-wrapper">
+                <span class="blog-tag">Community</span>
+                <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=600"
+                    alt="Community">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span><ion-icon name="calendar-outline"></ion-icon> Sep 25, 2024</span>
+                    <span><ion-icon name="time-outline"></ion-icon> 4 min read</span>
+                </div>
+                <h2 class="blog-title">Why Book Clubs Are Making a Comeback</h2>
+                <p>In a lonely digial world, physical and virtual book clubs are providing much-needed connection and
+                    discourse.</p>
+                <a href="#" class="read-more">Read Article <ion-icon name="arrow-forward"></ion-icon></a>
+            </div>
+        </article>
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80
+        });
+
+        // Load Header/Footer
+        // Note: Assuming file is in root
+        fetch('asset/component/header.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+                // Initialize stuff if needed
+            });
+
+        fetch('asset/component/footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+    <script src="asset/js/script.js"></script>
+    <script src="asset/js/cart.js"></script>
+</body>
+
+</html>

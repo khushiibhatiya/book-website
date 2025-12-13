@@ -91,8 +91,8 @@
         </div>
 
         <!-- Featured / Trending -->
-        <h2 class="category-section-title" data-aos="fade-up"><ion-icon name="flame"
-                style="color: #FF6B6B;"></ion-icon> Trending Now</h2>
+        <h2 class="category-section-title" data-aos="fade-up"><ion-icon name="flame" style="color: #FF6B6B;"></ion-icon>
+            Trending Now</h2>
 
         <div class="shop-grid">
             <!-- FICTION -->
@@ -313,6 +313,33 @@
                 }
             });
         }
+
+        // Check URL for category parameter on load
+        function checkUrlCategory() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+
+            if (categoryParam) {
+                // Find matching pill
+                const matchingPill = document.querySelector(`.filter-pill[data-category="${categoryParam}"]`);
+                if (matchingPill) {
+                    filterPills.forEach(p => p.classList.remove('active'));
+                    matchingPill.classList.add('active');
+                    filterContent(categoryParam);
+
+                    // Optional: Scroll to filters so user sees result
+                    setTimeout(() => {
+                        const filterSection = document.querySelector('.category-filter');
+                        if (filterSection) {
+                            filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
+                }
+            }
+        }
+
+        // Initialize check
+        checkUrlCategory();
 
         // Category Click Event
         filterPills.forEach(pill => {
