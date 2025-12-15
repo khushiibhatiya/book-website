@@ -674,3 +674,76 @@
     opacity: 1;
     transform: scale(1);
 }
+
+#viewMoreBtn {
+    border: none;
+}
+
+/* --- Special Edition Styling --- */
+.filter-pill.special-pill {
+    background: linear-gradient(135deg, #FFD700 0%, #FDB931 100%);
+    color: #1a1a2e;
+    border: none;
+    font-weight: 800;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    animation: goldPulse 3s infinite;
+}
+
+.filter-pill.special-pill:hover,
+.filter-pill.special-pill.active {
+    background: linear-gradient(135deg, #FDB931 0%, #FFD700 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+    color: #1a1a2e;
+}
+
+@keyframes goldPulse {
+    0% {
+        box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 5px 25px rgba(255, 215, 0, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* Special Edition Book Card */
+.book-card.special-card {
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.05), rgba(255, 255, 255, 0.8));
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+.book-card.special-card .badge-new {
+    background: linear-gradient(135deg, #FFD700, #FDB931);
+    color: #1a1a2e;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-card.special-card .book-price {
+    color: #b48608;
+    background: rgba(255, 215, 0, 0.15);
+}
+
+.book-card.special-card:hover {
+    border-color: #FFD700;
+    box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+}
+
+.book-card.special-card .add-btn {
+    background: #1a1a2e;
+    color: #FFD700;
+    border: 1px solid #FFD700;
+}
+
+.book-card.special-card .add-btn:hover {
+    background: #FFD700;
+    color: #1a1a2e;
+}
